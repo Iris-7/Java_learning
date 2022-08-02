@@ -1,0 +1,48 @@
+package exercise;
+import java.util.Scanner;
+
+/*
+ * 实现功能：删除数组内指定元素*/
+public class RemoveArr
+{
+	public static void main(String[] args)
+	{
+		//1.给定数组、要删除的数组小标
+		int[] arr = {12,12,45,67,89,90};
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入要删除的数组元素下标：");
+		int index = sc.nextInt();
+		//2.输出删除前的数组
+		printArr(arr);
+		//3.删除数组
+		removeArr_para(arr,index);
+		/*
+		 * arr[2]=arr[3]
+		 * arr[3]=arr[4]
+		 * ...
+		 * arr[arr.length-1]=0
+		 */
+		//4.输出删除后的数组
+		printArr(arr);
+	}
+
+	private static void printArr(int[] arr)
+	{
+		for(int i=0;i<arr.length;i++){
+			if(i!=arr.length-1){
+				System.out.print(arr[i]+",");
+			}
+			else {
+				System.out.print(arr[i]+"\n");
+			}
+		}
+	}
+
+	private static void removeArr_para(int[] arr,int index)
+	{
+		for(int i =index;i<arr.length-1;i++){
+			arr[i]=arr[i+1];
+		}
+		arr[arr.length-1] = 0;
+		}
+	}
